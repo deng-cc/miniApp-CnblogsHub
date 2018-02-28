@@ -1,0 +1,7 @@
+{
+	"navigationBarBackgroundColor": "#ffffff",
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "闪存",
+	"enablePullDownRefresh":true,
+	"onReachBottomDistance":100
+}

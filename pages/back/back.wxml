@@ -1,0 +1,1 @@
+<button catch:tap="onClearTap" type="primary">清除所有缓存</button>

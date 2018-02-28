@@ -1,0 +1,21 @@
+1、wx.getsysteminfo获取设备信息不准确，部分机型会在滚动查看闪存时出现上方导航栏跟随滑动的现象
+
+2、通过监测滑动来试图做tabBar的收起和显示，效果不太理想，卡顿明显，暂时作罢
+<scroll-view class="statuses-view" style="height:100vh" scroll-y="true" bindscroll="onScroll"> 
+var scrollDir = true;
+onScroll: function(event){
+	//下滑
+	if (scrollDir && event.detail.deltaY < -50){
+		scrollDir = false;
+		wx.hideTabBar({
+			animation:true
+		})
+	}
+	//上滑
+	if (!scrollDir && event.detail.deltaY > 50) {
+		scrollDir = true;
+		wx.showTabBar({
+			animation:true
+		})
+	}
+}

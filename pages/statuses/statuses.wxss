@@ -1,0 +1,119 @@
+/* 
+height 61rpx = 
+	.statuses-topBar-container(40+20=60rpx) +
+	.statuses-dividingLine(1rpx)
+*/
+.statuses-topBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 61rpx;
+    z-index: 99;
+    background-color: #fff;
+}
+
+/* larger than .statuses-topBar height */
+.statuses-page {
+    margin-top: 80rpx;
+}
+
+.statuses-topBar-container {
+    width: 95%;
+    height: 40rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0rpx auto 20rpx;
+}
+
+.statuses-topBar-container image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.statuses-topBar-container text {
+    font-size: 34rpx;
+    font-weight: 600;
+    margin: 0rpx 0rpx 0rpx 30rpx;
+}
+
+.statuses-curType {
+    color: #09bb07;
+}
+
+.statuses-dividingLine {
+    border-bottom: 1rpx solid #d9d9d9;
+}
+
+.statuses-container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 24rpx auto 24rpx;
+    border-radius: 4px;
+}
+
+.statuses-head-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.statuses-user-container {
+    display: flex;
+    flex-direction: row;
+    margin: 10rpx;
+}
+
+.statuses-user-container image {
+    width: 66rpx;
+    height: 66rpx;
+    border-radius: 66rpx;
+}
+
+.statuses-via-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0rpx 10rpx;
+}
+
+.statuses-via-nickname {
+    font-size: 26rpx;
+    font-weight: 500;
+    margin: 2rpx 0rpx;
+}
+
+.statuses-via-date {
+    font-size: 24rpx;
+    color: #b2b2b2;
+}
+
+.statuses-comment-container {
+    display: flex;
+    flex-direction: row;
+    margin: 12rpx 10rpx;
+}
+
+.statuses-comment-container image {
+    width: 32rpx;
+    height: 29rpx;
+    margin: 0rpx 10rpx;
+}
+
+.statuses-comment-container text {
+    font-size: 24rpx;
+    color: #888;
+    margin: 2rpx 0rpx;
+}
+
+.statuses-content {
+    padding: 0rpx 15rpx 15rpx 15rpx;
+    line-height: 34rpx;
+}
+
+.statuses-luckyStar {
+    width: 30rpx;
+    height: 30rpx;
+}

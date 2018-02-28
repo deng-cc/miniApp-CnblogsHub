@@ -1,0 +1,34 @@
+<view class="statuses-topBar">
+    <view class="statuses-topBar-container">
+        <image src="/images/statuses/edit.png"></image>
+        <view catch:tap="onStatusesTypeTap" class="statuses-type">
+            <text class="{{curType==='all' ? 'statuses-curType' : ''}}" data-type="all">全站</text>
+            <text class="{{curType==='following' ? 'statuses-curType' : ''}}" data-type="following">关注</text>
+            <text class="{{curType==='my' ? 'statuses-curType' : ''}}" data-type="my">我的</text>
+        </view>
+    </view>
+    <view class="statuses-dividingLine"></view>
+</view>
+<view class="statuses-page">
+<block wx:for="{{statuses}}" wx:for-item="status">
+    <view class="statuses-container shadow">
+        <view class="statuses-head-container">
+            <view class="statuses-user-container">
+                <image src="{{status.UserIconUrl}}"></image>
+                <view class="statuses-via-container">
+                    <text class="statuses-via-nickname">{{status.UserDisplayName}}</text>
+                    <text class="statuses-via-date">{{status.DateAdded}}</text>
+                </view>
+            </view>
+            <view class="statuses-comment-container">
+                <image src="/images/statuses/comment.png"></image>
+                <text>{{status.CommentCount}}</text>
+            </view>
+        </view>
+        <view class="statuses-content">
+            <text selectable="true">{{status.Content}}</text>
+            <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
+        </view>
+    </view>
+</block>
+</view>

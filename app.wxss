@@ -1,0 +1,11 @@
+text{
+	font-family: MicroSoft Yahei;	
+	font-size: 26rpx;
+	color: #353535;
+}
+
+.shadow {
+	box-shadow: 2rpx 2rpx 10rpx #888888;
+}
+
+

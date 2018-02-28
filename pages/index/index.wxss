@@ -1,0 +1,41 @@
+.index-container{
+	display: flex;
+	flex-direction: column;
+}
+
+.index-text-container{
+	display: flex;
+	flex-direction: column;	
+	width: 80%;
+	margin: 200rpx auto;
+}
+
+.index-text-cn{
+	font-size: 60rpx;
+	font-weight: 900;
+	color: #09BB07
+}
+
+.index-text-en{
+	font-size: 40rpx;
+	font-weight: 900;
+	color: #09BB07
+}
+
+.index-input-container {
+	display: flex;
+	flex-direction: column;
+	width:400rpx;
+	margin: 100rpx auto;
+}
+
+.index-input-container input {
+	border-radius: 10rpx;
+	border: 1rpx solid #888888;
+	width: 100%;
+	margin: 0rpx 0rpx 20rpx 0rpx;
+}
+
+.index-input-container button {
+	width: 100%;
+}

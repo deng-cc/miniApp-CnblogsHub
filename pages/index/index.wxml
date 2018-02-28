@@ -1,1 +1,12 @@
-<text>Hello, world!</text>
+<view class="index-container">
+    <view class="index-text-container">
+        <text class="index-text-cn">代码</text>
+        <text class="index-text-cn">改变世界</text>
+        <text class="index-text-en">Coding</text>
+        <text class="index-text-en">Changes the World</text>
+    </view>
+    <view class="index-input-container">
+        <input bindblur="onInputBlur" placeholder="请输入授权码" />
+        <button catch:tap="onSubmitTap" type="primary">开启</button>
+    </view>
+</view>
