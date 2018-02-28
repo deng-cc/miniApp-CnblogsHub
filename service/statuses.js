@@ -2,15 +2,14 @@ var base = require("base.js");
 var baseUrl = base.baseUrl;
 
 const URL_STATUSES = `${baseUrl}/statuses/`;
-const PAGE_SIZE_LIMIT = 100;
+const PAGE_SIZE = 30;
 
-function getStatuses(type, pageIndex, pageSize, success, fail) {
-	let url = URL_STATUSES + `@${type}?pageIndex=${pageIndex}&pageSize=${pageSize}&tag=`;
+function getStatuses(type, pageIndex, success, fail) {
+	let url = URL_STATUSES + `@${type}?pageIndex=${pageIndex}&pageSize=${PAGE_SIZE}&tag=`;
 	base.sendGetAuth(url, success, fail);
 }
 
 
 module.exports = {
-	pageSizeLimit : PAGE_SIZE_LIMIT,
 	getStatuses: getStatuses
 }
