@@ -11,7 +11,7 @@ Page({
 		curPageIndex: 0,
 	},
 
-	initStatuses: function (type, success) {
+	initStatuses: function (type) {
 		wx.showLoading({
 			title: "loading"
 		});
@@ -24,7 +24,6 @@ Page({
 		function process(data) {
 			that.processData(data);
 			wx.hideLoading();
-			success;
 		}
 		service.getStatuses(this.data.curType, this.data.curPageIndex, process, null);
 	},
@@ -35,10 +34,8 @@ Page({
 
 	//下拉刷新
 	onPullDownRefresh: function () {
-		function success() {
-			wx.stopPullDownRefresh();
-		}
-		this.initStatuses(this.data.curType, success);
+		this.initStatuses(this.data.curType);
+		wx.stopPullDownRefresh();
 	},
 
 	//触底加载
