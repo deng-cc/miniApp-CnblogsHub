@@ -9,6 +9,7 @@ Page({
 		statuses: [],
 		curType: "",
 		curPageIndex: 0,
+		lineText:""
 	},
 
 	initStatuses: function (type) {
@@ -18,7 +19,8 @@ Page({
 		this.setData({
 			statuses: [],
 			curType: type,
-			curPageIndex: 1
+			curPageIndex: 1,
+			lineText:"加载更多"
 		})
 		let that = this;
 		function process(data) {
@@ -41,10 +43,19 @@ Page({
 	//触底加载
 	onReachBottom: function () {
 		console.log("loading new statuses data start")
+		wx.showNavigationBarLoading();
 		this.setData({
 			curPageIndex: this.data.curPageIndex + 1
 		})
-		service.getStatuses(this.data.curType, this.data.curPageIndex, this.processData, null);
+		let that = this;
+		function process(data){
+			that.processData(data);
+			that.setData({
+				lineText: data.length? "加载更多":"没有更多"
+			})
+			wx.hideNavigationBarLoading();
+		}
+		service.getStatuses(this.data.curType, this.data.curPageIndex, process, null);
 	},
 
 	//topBar类型点击

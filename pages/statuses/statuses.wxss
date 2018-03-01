@@ -18,6 +18,12 @@ height 61rpx =
     margin-top: 80rpx;
 }
 
+  .statuses-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}  
+
 .statuses-topBar-container {
     width: 95%;
     height: 40rpx;

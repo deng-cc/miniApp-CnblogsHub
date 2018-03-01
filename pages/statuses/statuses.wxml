@@ -10,25 +10,28 @@
     <view class="statuses-dividingLine"></view>
 </view>
 <view class="statuses-page">
-<block wx:for="{{statuses}}" wx:for-item="status">
-    <view class="statuses-container shadow">
-        <view class="statuses-head-container">
-            <view class="statuses-user-container">
-                <image src="{{status.UserIconUrl}}"></image>
-                <view class="statuses-via-container">
-                    <text class="statuses-via-nickname">{{status.UserDisplayName}}</text>
-                    <text class="statuses-via-date">{{status.DateAdded}}</text>
+    <view class="statuses-list">
+        <block wx:for="{{statuses}}" wx:for-item="status">
+            <view class="statuses-container shadow">
+                <view class="statuses-head-container">
+                    <view class="statuses-user-container">
+                        <image src="{{status.UserIconUrl}}"></image>
+                        <view class="statuses-via-container">
+                            <text class="statuses-via-nickname">{{status.UserDisplayName}}</text>
+                            <text class="statuses-via-date">{{status.DateAdded}}</text>
+                        </view>
+                    </view>
+                    <view class="statuses-comment-container">
+                        <image src="/images/statuses/comment.png"></image>
+                        <text>{{status.CommentCount}}</text>
+                    </view>
+                </view>
+                <view class="statuses-content">
+                    <text selectable="true">{{status.Content}}</text>
+                    <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
                 </view>
             </view>
-            <view class="statuses-comment-container">
-                <image src="/images/statuses/comment.png"></image>
-                <text>{{status.CommentCount}}</text>
-            </view>
-        </view>
-        <view class="statuses-content">
-            <text selectable="true">{{status.Content}}</text>
-            <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
-        </view>
+        </block>
+        <text class="loadmore">{{lineText}}</text>
     </view>
-</block>
 </view>
