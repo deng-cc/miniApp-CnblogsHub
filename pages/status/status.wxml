@@ -1,0 +1,24 @@
+ <import src="../template/template-comment/template-comment-right.wxml" /> 
+ <import src="../template/template-comment/template-comment-left.wxml" /> 
+
+<view class="statuses-container">
+    <view class="statuses-head-container">
+        <view class="statuses-user-container">
+            <image src="{{status.UserIconUrl}}"></image>
+            <view class="statuses-via-container">
+                <text class="statuses-via-nickname">{{status.UserDisplayName}}</text>
+                <text class="statuses-via-date">{{status.DateAdded}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="statuses-content">
+        <text selectable="true">{{status.Content}}</text>
+        <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
+    </view>
+</view>
+
+<view class="dividingLine"></view>
+
+<block wx:for="{{comments}}" wx:for-item="comment">
+	<template is="{{comment.UserId === status.UserId? 'commentRight' : 'commentLeft'}}" data="{{...comment}}" />
+</block>

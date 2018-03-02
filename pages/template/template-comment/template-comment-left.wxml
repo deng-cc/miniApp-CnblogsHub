@@ -1,0 +1,14 @@
+<template name="commentLeft">
+    <view class="comment-container-left">
+        <image src="{{UserIconUrl}}"></image>
+        <view class="comment-left shadow">
+            <view class="comment-via-left">
+                <text class="comment-via-nickname wx-blue">{{UserDisplayName}}</text>
+                <text class="comment-via-date wx-light">{{DateAdded}}</text>
+            </view>
+            <view class="comment-content-left">
+                <text>{{Content}}</text>
+            </view>
+        </view>
+    </view>
+</template>

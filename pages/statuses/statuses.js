@@ -1,5 +1,4 @@
 var app = getApp();
-var data = require("../../mock/data.js")
 var commonUtil = require("../../utils/common.js")
 var service = require("../../service/statuses.js")
 
@@ -70,7 +69,9 @@ Page({
 		for (let idx in data) {
 			let bean = data[idx];
 			//处理图片外链
-			bean.UserIconUrl = commonUtil.imgUrlProxy(bean.UserIconUrl)
+			bean.UserIconUrl = commonUtil.imgUrlProxy(bean.UserIconUrl);
+			//处理内容
+			bean.Content = service.processContent(bean.Content);
 			result.push(bean);
 		}
 
@@ -79,7 +80,13 @@ Page({
 		})
 		console.log("processData end:");
 		console.log(result);
-		return true;
+	},
+
+	onStatusTap:function(event){
+		let id = event.currentTarget.dataset.id;
+		wx.navigateTo({
+			url: "/pages/status/status?id=" + id
+		})
 	}
 
 

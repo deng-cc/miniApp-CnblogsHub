@@ -1,0 +1,45 @@
+@import "template-comment-common.wxss"; 
+
+.comment-container-right {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 95%;
+	margin: 30rpx auto;
+}
+
+.comment-right {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	margin-right: 10rpx;
+	padding: 10rpx;
+	border-radius: 4rpx;
+	line-height: 34rpx;
+}
+
+.comment-via-right {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.comment-content-right {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+
+
+
+
+
+
+.status-comment-container-right image{
+	width: 66rpx;
+    height: 66rpx;
+    border-radius: 66rpx;
+	margin-right: 10rpx;
+}

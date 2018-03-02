@@ -18,11 +18,11 @@ height 61rpx =
     margin-top: 80rpx;
 }
 
-  .statuses-list {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}  
+.statuses-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .statuses-topBar-container {
     width: 95%;
@@ -48,15 +48,11 @@ height 61rpx =
     color: #09bb07;
 }
 
-.statuses-dividingLine {
-    border-bottom: 1rpx solid #d9d9d9;
-}
-
 .statuses-container {
     display: flex;
     flex-direction: column;
     width: 95%;
-    margin: 24rpx auto 24rpx;
+    margin: 12rpx auto;
     border-radius: 4px;
 }
 
@@ -89,6 +85,7 @@ height 61rpx =
     font-size: 26rpx;
     font-weight: 500;
     margin: 2rpx 0rpx;
+	color: #576b95;
 }
 
 .statuses-via-date {

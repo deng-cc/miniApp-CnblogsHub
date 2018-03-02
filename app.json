@@ -2,6 +2,7 @@
 	"pages": [
 		"pages/index/index",
 		"pages/statuses/statuses",
+		"pages/status/status",
 		"pages/demo/demo",
 		"pages/back/back"
 	],
@@ -9,19 +10,27 @@
 		"list":[
 			{
 				"pagePath":"pages/statuses/statuses",
-				"text":"闪存"
+				"text":"闪存",
+				"iconPath" :"images/tabBar/flashOff.png",
+				"selectedIconPath":"images/tabBar/flashOn.png"
 			},
 			{
 				"pagePath":"pages/demo/demo",
-				"text":"信息"
+				"text":"信息",
+				"iconPath": "images/tabBar/notificationOff.png",
+				"selectedIconPath": "images/tabBar/notificationOn.png"
 			},
 			{
 				"pagePath":"pages/demo/demo",
-				"text":"热点"
+				"text":"热点",
+				"iconPath": "images/tabBar/fireOff.png",
+				"selectedIconPath": "images/tabBar/fireOn.png"
 			},
 			{
 				"pagePath":"pages/back/back",
-				"text":"我"
+				"text":"我",
+				"iconPath": "images/tabBar/meOff.png",
+				"selectedIconPath": "images/tabBar/meOn.png"
 			}
 		],
 		"color":"#888888",

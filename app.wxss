@@ -1,16 +1,50 @@
-text{
-	font-family: MicroSoft Yahei;	
-	font-size: 26rpx;
-	color: #353535;
+text {
+    font-family: MicroSoft Yahei;
+    font-size: 26rpx;
+    color: #353535;
 }
 
 .shadow {
-	box-shadow: 2rpx 2rpx 10rpx #888888;
+    box-shadow: 2rpx 2rpx 10rpx #888;
 }
 
 .loadmore {
-	color: #b2b2b2;
-	margin: 0 auto 10rpx;
+    color: #b2b2b2;
+    margin: 0 auto 10rpx;
 }
 
+.dividingLine {
+    border-bottom: 1rpx solid #d9d9d9;
+}
 
+.wx-green {
+    color: #09bb07;
+}
+
+.wx-bg-olivine {
+    background-color: #a0e75a;
+}
+
+.wx-bg-green {
+    background-color: #09bb07;
+}
+
+.wx-blue {
+    color: #576b95;
+}
+
+.wx-red {
+    color: #e64340;
+}
+
+.wx-light {
+    color: #b2b2b2;
+}
+
+.wx-grey {
+    color: #888;
+}
+
+.wx-semi {
+    color: #353535;
+}

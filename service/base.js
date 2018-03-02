@@ -51,16 +51,31 @@ function send(url, method, header, data, success, fail) {
 		data: data ? data : {},
 		success: function (re) {
 			console.log(re);
-			console.info(method + " request send success, url=" + url +  ", statusCode=" + re.statusCode);
+			console.info(method + " request send success, url=" + url + ", statusCode=" + re.statusCode);
 			// if not error, invoke success(), else invoke fail()
-			let status = re.statusCode === 200 && true;
-			if (status) {
-				if (success) {
-					success(re.data)
-				};
-			} else {
-				console.error("api invoke failed, http status code:" + re.statusCode);
-				if (fail) { fail(re) };
+			switch (re.statusCode) {
+				case 200:
+					if (success) { success(re.data) };
+					break;
+				case 401:
+					//auth useless
+					wx.showToast({
+						title: "授权码已失效",
+						image: "/images/index/warn.png",
+						complete:function(){
+							wx.removeStorageSync(KEY_TOKEN);
+							setTimeout(function(){
+								wx.reLaunch({
+									url: "/pages/index/index"
+								})
+							}, 1500);
+						}
+					})
+					if (fail) { fail(re) };
+					break;
+				default:
+					if (fail) { fail(re) };
+					console.error("api invoke failed, http status code: " + re.statusCode)
 			}
 		},
 		fail: function (re) {

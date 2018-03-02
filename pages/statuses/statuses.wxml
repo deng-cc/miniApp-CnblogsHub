@@ -7,12 +7,12 @@
             <text class="{{curType==='my' ? 'statuses-curType' : ''}}" data-type="my">我的</text>
         </view>
     </view>
-    <view class="statuses-dividingLine"></view>
+    <view class="dividingLine"></view>
 </view>
 <view class="statuses-page">
     <view class="statuses-list">
         <block wx:for="{{statuses}}" wx:for-item="status">
-            <view class="statuses-container shadow">
+            <view class="statuses-container shadow" data-id="{{status.Id}}" catch:tap="onStatusTap">
                 <view class="statuses-head-container">
                     <view class="statuses-user-container">
                         <image src="{{status.UserIconUrl}}"></image>
@@ -22,8 +22,8 @@
                         </view>
                     </view>
                     <view class="statuses-comment-container">
-                        <image src="/images/statuses/comment.png"></image>
                         <text>{{status.CommentCount}}</text>
+                        <image src="/images/statuses/comment.png"></image>
                     </view>
                 </view>
                 <view class="statuses-content">

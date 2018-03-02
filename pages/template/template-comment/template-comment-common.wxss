@@ -1,0 +1,16 @@
+.comment-container-right image{
+	width: 66rpx;
+    height: 66rpx;
+    border-radius: 66rpx;
+	margin-left: 10rpx;
+}
+
+.comment-via-nickname {
+    font-size: 26rpx;
+    font-weight: 500;
+}
+
+.comment-via-date {
+    font-size: 24rpx;
+	margin: 0 10rpx;
+}
