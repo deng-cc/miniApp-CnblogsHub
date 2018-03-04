@@ -4,6 +4,7 @@ const CLIENT_ID = "";
 const CLIENT_SECRET = "";
 
 const KEY_TOKEN = "token";
+const KEY_REFRESH_TOKEN = "refresh_token"
 
 const URL_BASE = "https://api.cnblogs.com/api";
 const URL_CALLBACK = "https://oauth.cnblogs.com/auth/callback";
@@ -62,13 +63,15 @@ function send(url, method, header, data, success, fail) {
 					wx.showToast({
 						title: "授权码已失效",
 						image: "/images/index/warn.png",
-						complete:function(){
+						complete: function () {
+							/*
 							wx.removeStorageSync(KEY_TOKEN);
-							setTimeout(function(){
+							setTimeout(function () {
 								wx.reLaunch({
 									url: "/pages/index/index"
 								})
 							}, 1500);
+							*/
 						}
 					})
 					if (fail) { fail(re) };
@@ -98,14 +101,32 @@ function getNewToken(code, success, fail) {
 	sendPostHeader(URL_AUTHORIZE, header, data,
 		function (re) {
 			wx.setStorageSync(KEY_TOKEN, re["access_token"]);
+			wx.setStorageSync(KEY_REFRESH_TOKEN, re["refresh_token"]);
 			success(re);
 		},
 		fail
 	);
 }
 
+function refreshToken(success, fail) {
+	let header = {
+		"content-type": "application/x-www-form-urlencoded",
+		"authorization": "Bearer " + getToken()
+	};
+	let data = {
+		grant_type: "refresh_token",
+		refresh_token: getRefreshToken()
+	}
+	sendPostHeader(URL_AUTHORIZE, header, data, success, fail)
+}
+
+
 function getToken() {
 	return wx.getStorageSync(KEY_TOKEN);
+}
+
+function getRefreshToken() {
+	return wx.getStorageInfoSync(KEY_REFRESH_TOKEN);
 }
 
 module.exports = {

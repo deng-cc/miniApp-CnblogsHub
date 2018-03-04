@@ -1,19 +1,19 @@
  <import src="../template/template-comment/template-comment-right.wxml" /> 
  <import src="../template/template-comment/template-comment-left.wxml" /> 
 
-<view class="statuses-container">
-    <view class="statuses-head-container">
-        <view class="statuses-user-container">
+<view class="status-container">
+    <view class="status-head-container">
+        <view class="status-user-container">
             <image src="{{status.UserIconUrl}}"></image>
-            <view class="statuses-via-container">
-                <text class="statuses-via-nickname">{{status.UserDisplayName}}</text>
-                <text class="statuses-via-date">{{status.DateAdded}}</text>
+            <view class="status-via-container">
+                <text class="status-via-nickname">{{status.UserDisplayName}}</text>
+                <text class="status-via-date">{{status.DateAdded}}</text>
             </view>
         </view>
     </view>
-    <view class="statuses-content">
+    <view class="status-content">
         <text selectable="true">{{status.Content}}</text>
-        <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
+        <image class="status-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
     </view>
 </view>
 

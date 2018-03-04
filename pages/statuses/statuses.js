@@ -41,7 +41,6 @@ Page({
 
 	//触底加载
 	onReachBottom: function () {
-		console.log("loading new statuses data start")
 		wx.showNavigationBarLoading();
 		this.setData({
 			curPageIndex: this.data.curPageIndex + 1
@@ -68,18 +67,13 @@ Page({
 		let result = this.data.statuses;
 		for (let idx in data) {
 			let bean = data[idx];
-			//处理图片外链
-			bean.UserIconUrl = commonUtil.imgUrlProxy(bean.UserIconUrl);
-			//处理内容
-			bean.Content = service.processContent(bean.Content);
+			service.processData(bean);
 			result.push(bean);
 		}
-
 		this.setData({
 			statuses: result
 		})
-		console.log("processData end:");
-		console.log(result);
+		console.log(result)
 	},
 
 	onStatusTap:function(event){

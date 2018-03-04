@@ -32,10 +32,7 @@ Page({
 	},
 
 	processStatus: function (data) {
-		//处理图片外链
-		data.UserIconUrl = commonUtil.imgUrlProxy(data.UserIconUrl)
-		//处理内容
-		data.Content = service.processContent(data.Content);
+		service.processData(data);
 		this.setData({
 			status: data
 		})
@@ -45,10 +42,7 @@ Page({
 
 		for (let idx in data) {
 			let bean = data[idx];
-			//处理图片外链
-			bean.UserIconUrl = commonUtil.imgUrlProxy(bean.UserIconUrl)
-			//处理内容
-			bean.Content = service.processContent(bean.Content);
+			service.processData(bean);
 		}
 		this.setData({
 			comments: data

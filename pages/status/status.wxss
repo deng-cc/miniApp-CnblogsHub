@@ -2,7 +2,7 @@
  @import "../template/template-comment/template-comment-right.wxss";
  @import "../template/template-comment/template-comment-left.wxss";
 
-.statuses-container {
+.status-container {
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -10,47 +10,48 @@
     border-radius: 4px;
 }
 
-.statuses-head-container {
+.status-head-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.statuses-user-container {
+.status-user-container {
     display: flex;
     flex-direction: row;
     margin: 10rpx;
 }
 
-.statuses-user-container image {
+.status-user-container image {
     width: 66rpx;
     height: 66rpx;
     border-radius: 66rpx;
 }
 
-.statuses-via-container {
+.status-via-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0rpx 10rpx;
 }
 
-.statuses-via-nickname {
+.status-via-nickname {
     font-size: 26rpx;
     font-weight: 500;
     margin: 2rpx 0rpx;
 }
 
-.statuses-via-date {
+.status-via-date {
     font-size: 24rpx;
+	color: #b2b2b2;
 }
 
-.statuses-content {
+.status-content {
     padding: 0rpx 15rpx 15rpx 15rpx;
     line-height: 34rpx;
 }
 
-.statuses-luckyStar {
+.status-luckyStar {
     width: 30rpx;
     height: 30rpx;
 }
