@@ -27,7 +27,7 @@ Page({
 	},
 
 	onPullDownRefresh: function () {
-		this.initStatus(this.status.Id);
+		this.initStatus(this.data.status.Id);
 		wx.stopPullDownRefresh();
 	},
 

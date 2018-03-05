@@ -14,7 +14,7 @@
 	width: 70%;
 	margin-right: 10rpx;
 	padding: 10rpx;
-	border-radius: 4rpx;
+	border-radius: 24rpx 0 24rpx 24rpx;
 	line-height: 34rpx;
 }
 
@@ -30,12 +30,6 @@
 	flex-direction: row;
 	justify-content: flex-end;
 }
-
-
-
-
-
-
 
 .status-comment-container-right image{
 	width: 66rpx;

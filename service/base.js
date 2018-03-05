@@ -61,27 +61,51 @@ function send(url, method, header, data, success, fail) {
 				case 401:
 					//auth useless
 					wx.showToast({
-						title: "授权码已失效",
+						title: "尝试刷新授权码",
 						image: "/images/index/warn.png",
 						complete: function () {
-							/*
-							wx.removeStorageSync(KEY_TOKEN);
-							setTimeout(function () {
-								wx.reLaunch({
-									url: "/pages/index/index"
-								})
-							}, 1500);
-							*/
+							refreshToken(
+								function (re) {
+									console.log("刷新token成功");
+									wx.reLaunch({
+										url: "/pages/statuses/statuses"
+									})
+								},
+								function (re) {
+									console.log("刷新token失败");
+									wx.showToast({
+										title: "授权码失效",
+										image: "/images/index/warn.png",
+										complete: function () {
+											wx.removeStorageSync(KEY_TOKEN);
+											wx.removeStorageSync(KEY_REFRESH_TOKEN);
+											setTimeout(function () {
+												wx.reLaunch({
+													url: "/pages/index/index"
+												})
+											}, 800);
+										}
+									})
+								}
+							)
 						}
 					})
 					if (fail) { fail(re) };
 					break;
 				default:
-					if (fail) { fail(re) };
 					console.error("api invoke failed, http status code: " + re.statusCode)
+					wx.showToast({
+						title: re.errMsg,
+						image:"/images/index/warn.png"
+					})
+					if (fail) { fail(re) };
 			}
 		},
 		fail: function (re) {
+			wx.showToast({
+				title: "当前网络异常",
+				image: "/images/index/warn.png"
+			})
 			console.error(method + " request send fail");
 			console.error(re);
 		}
@@ -109,15 +133,26 @@ function getNewToken(code, success, fail) {
 }
 
 function refreshToken(success, fail) {
+	console.log("授权已失效，开始尝试刷新token")
 	let header = {
 		"content-type": "application/x-www-form-urlencoded",
 		"authorization": "Bearer " + getToken()
 	};
 	let data = {
+		client_id: CLIENT_ID,
+		client_secret: CLIENT_SECRET,
+		redirect_uri: URL_CALLBACK,
 		grant_type: "refresh_token",
 		refresh_token: getRefreshToken()
 	}
-	sendPostHeader(URL_AUTHORIZE, header, data, success, fail)
+	sendPostHeader(URL_AUTHORIZE, header, data,
+		function (re) {
+			wx.setStorageSync(KEY_TOKEN, re["access_token"]);
+			wx.setStorageSync(KEY_REFRESH_TOKEN, re["refresh_token"]);
+			success(re);
+		},
+		fail
+	);
 }
 
 
@@ -126,7 +161,7 @@ function getToken() {
 }
 
 function getRefreshToken() {
-	return wx.getStorageInfoSync(KEY_REFRESH_TOKEN);
+	return wx.getStorageSync(KEY_REFRESH_TOKEN);
 }
 
 module.exports = {

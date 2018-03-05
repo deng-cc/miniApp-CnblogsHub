@@ -1,5 +1,5 @@
- <import src="../template/template-comment/template-comment-right.wxml" /> 
- <import src="../template/template-comment/template-comment-left.wxml" /> 
+<import src="../template/template-comment/template-comment-right.wxml" />
+<import src="../template/template-comment/template-comment-left.wxml" />
 
 <view class="status-container">
     <view class="status-head-container">
@@ -20,5 +20,10 @@
 <view class="dividingLine"></view>
 
 <block wx:for="{{comments}}" wx:for-item="comment">
-	<template is="{{comment.UserId === status.UserId? 'commentRight' : 'commentLeft'}}" data="{{...comment}}" />
+    <template is="{{comment.UserId === status.UserId? 'commentRight' : 'commentLeft'}}" data="{{...comment}}" />
 </block>
+
+<view class="status-comment-input-container">
+    <input type="text" placeholder="说点什么吧" placeholder-style="font-size:26rpx;margin-left:10rpx;" confirm-type="send" />
+    <button type="primary" size="mini">发送</button>
+</view>

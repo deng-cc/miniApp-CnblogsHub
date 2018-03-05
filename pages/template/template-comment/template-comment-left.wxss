@@ -19,7 +19,7 @@
 	width: 70%;
 	margin-left: 10rpx;
 	padding: 10rpx;
-	border-radius: 4rpx;
+	border-radius: 0rpx 24rpx 24rpx 24rpx;
 	line-height: 34rpx;
 }
 
