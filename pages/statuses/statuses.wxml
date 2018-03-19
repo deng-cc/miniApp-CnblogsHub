@@ -1,6 +1,6 @@
 <view class="statuses-topBar">
     <view class="statuses-topBar-container">
-        <image src="/images/statuses/edit.png"></image>
+        <image src="/images/statuses/edit.png" catch:tap="onEditTap"></image>
         <view catch:tap="onStatusesTypeTap" class="statuses-type">
             <text class="{{curType==='all' ? 'statuses-curType' : ''}}" data-type="all">全站</text>
             <text class="{{curType==='following' ? 'statuses-curType' : ''}}" data-type="following">关注</text>

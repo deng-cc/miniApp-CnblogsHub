@@ -1,0 +1,6 @@
+<view class="inputarea-container shadow">
+    <image src="/images/tabBar/flashOn.png"></image>
+    <textarea placeholder="说点儿什么吧..." placeholder-style="font-size:30rpx;"></textarea>
+    <text>0/150</text>
+</view>
+<button type="primary">发送</button>

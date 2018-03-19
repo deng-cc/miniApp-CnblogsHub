@@ -56,6 +56,12 @@ Page({
 		service.getStatuses(this.data.curType, this.data.curPageIndex, process, null);
 	},
 
+	onEditTap:function(event){
+		wx.navigateTo({
+			url: "/pages/reply/reply"
+		})
+	},
+
 	//topBar类型点击
 	onStatusesTypeTap: function (event) {
 		let type = event.target.dataset.type;

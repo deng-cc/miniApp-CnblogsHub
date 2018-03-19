@@ -56,24 +56,7 @@
     height: 30rpx;
 }
 
-.status-comment-input-container {
-	position: fixed;
-	bottom: 0;
-	display: flex;
-	flex-direction: row;
-	margin: 10rpx;
-}
 
-.status-comment-input-container input {
-	height: 50rpx;
-	flex:auto;
-	border: 1rpx solid #b2b2b2;
-	border-radius: 10rpx;
-}
-
-.status-comment-input-container button {
-	margin-left: 10rpx;
-}
 
 
 

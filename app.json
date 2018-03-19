@@ -1,8 +1,10 @@
 {
 	"pages": [
+		
 		"pages/index/index",
 		"pages/statuses/statuses",
 		"pages/status/status",
+		"pages/reply/reply",
 		"pages/demo/demo",
 		"pages/back/back"
 	],

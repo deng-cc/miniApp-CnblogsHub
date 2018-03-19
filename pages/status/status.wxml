@@ -23,7 +23,3 @@
     <template is="{{comment.UserId === status.UserId? 'commentRight' : 'commentLeft'}}" data="{{...comment}}" />
 </block>
 
-<view class="status-comment-input-container">
-    <input type="text" placeholder="说点什么吧" placeholder-style="font-size:26rpx;margin-left:10rpx;" confirm-type="send" />
-    <button type="primary" size="mini">发送</button>
-</view>
