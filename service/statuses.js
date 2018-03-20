@@ -30,6 +30,16 @@ function sendStatus(content, success, fail) {
 	base.sendPostAuth(url, data, success, fail)
 }
 
+function replyStatus(statusId, content, replyToUserId, commentId, success, fail) {
+	let url = `${URL_STATUSES}${statusId}/comments`;
+	let data = {
+		"ReplyTo": replyToUserId,
+		"ParentCommentId": commentId,
+		"Content": content
+	}
+	base.sendPostAuth(url, data, success, fail);
+}
+
 function processContent(content) {
 	//处理@
 	let reg = /<a.*?>(@.*?)<\/a>/g;
@@ -82,5 +92,6 @@ module.exports = {
 	getStatus: getStatus,
 	getStatuses: getStatuses,
 	getComments: getComments,
-	sendStatus: sendStatus
+	sendStatus: sendStatus,
+	replyStatus: replyStatus
 }

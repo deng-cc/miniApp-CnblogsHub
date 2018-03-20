@@ -1,7 +1,7 @@
 App({
 
 	globalData: {
-		//索引页的授权码input值
-		indexInput:""
+		//当前回复的闪存信息
+		reply:{}
 	}
 })

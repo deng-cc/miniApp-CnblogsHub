@@ -6,12 +6,12 @@
         <view class="status-user-container">
             <image src="{{status.UserIconUrl}}"></image>
             <view class="status-via-container">
-                <text class="status-via-nickname">{{status.UserDisplayName}}</text>
+                <text class="status-via-nickname wx-blue">{{status.UserDisplayName}}</text>
                 <text class="status-via-date">{{status.DateAdded}}</text>
             </view>
         </view>
     </view>
-    <view class="status-content">
+    <view class="status-content" catch:tap="onReplyParent">
         <text selectable="true">{{status.Content}}</text>
         <image class="status-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
     </view>
@@ -19,7 +19,6 @@
 
 <view class="dividingLine"></view>
 
-<block wx:for="{{comments}}" wx:for-item="comment">
-    <template is="{{comment.UserId === status.UserId? 'commentRight' : 'commentLeft'}}" data="{{...comment}}" />
+<block wx:for="{{comments}}" wx:for-item="comment" wx:for-index="idx">
+    <template is="{{comment.UserId === status.UserId? 'commentRight' : 'commentLeft'}}" data="{{...comment, idx:idx}}" />
 </block>
-

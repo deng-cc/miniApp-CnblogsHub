@@ -1,0 +1,30 @@
+
+.inputarea-container {
+	display: flex;
+	flex-direction: column;
+	border-radius: 4px;
+	width: 90%;
+	margin: 10rpx auto;
+}
+
+.inputarea-container image {
+	align-self: flex-start;
+	margin: 12rpx 0; 
+	width: 60rpx;
+	height: 60rpx;
+}
+
+.inputarea-container textarea{
+	align-self: center;
+	height: 600rpx;
+}
+
+.inputarea-container text {
+	align-self: flex-end;
+	margin: 15rpx;
+}
+
+button {
+	width: 90%;
+	margin-top: 30rpx;
+}

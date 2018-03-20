@@ -8,7 +8,7 @@ Page({
 		comments: []
 	},
 
-	initStatus:function(id){
+	initStatus: function (id) {
 		wx.showLoading({
 			title: "loading"
 		});
@@ -45,7 +45,39 @@ Page({
 		this.setData({
 			comments: data
 		})
-	}
+	},
 
+	updateReply: function (event) {
+		let reply = app.globalData.reply;
+		let status = this.data.status;
+		let commentIdx = event.currentTarget.dataset.commentIdx;
+
+		reply.statusId = status.Id;
+		reply.userName = commentIdx >= 0 ? this.data.comments[commentIdx].UserDisplayName : "";
+		reply.commentId = commentIdx >= 0 ? this.data.comments[commentIdx].Id : 0;
+		reply.replyToUserId = commentIdx >= 0 ? this.data.comments[commentIdx].UserId : status.UserId;
+
+		let placeHolder = commentIdx >= 0 ? this.data.comments[commentIdx] : status;
+		let placeHolderContent = "回复 @" + placeHolder.UserAlias + ": " + placeHolder.Content;
+		if (placeHolderContent.length > 100) {
+			placeHolderContent = placeHolderContent.substring(0, 99) + "...";
+		}
+		reply.placeHolderContent = placeHolderContent;
+		console.log(reply);
+	},
+
+	onReplyParent: function (event) {
+		this.updateReply(event);
+		wx.navigateTo({
+			url: "/pages/reply/reply"
+		})
+	},
+
+	onReplyChild: function (event) {
+		this.updateReply(event);
+		wx.navigateTo({
+			url: "/pages/reply/reply"
+		})
+	}
 
 })
