@@ -58,7 +58,7 @@ Page({
 
 	onEditTap:function(event){
 		wx.navigateTo({
-			url: "/pages/reply/reply"
+			url: "/pages/send/send"
 		})
 	},
 

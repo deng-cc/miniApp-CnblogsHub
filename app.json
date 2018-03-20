@@ -1,10 +1,9 @@
 {
 	"pages": [
-		
 		"pages/index/index",
 		"pages/statuses/statuses",
 		"pages/status/status",
-		"pages/reply/reply",
+		"pages/send/send",
 		"pages/demo/demo",
 		"pages/back/back"
 	],

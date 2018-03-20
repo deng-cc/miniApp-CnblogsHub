@@ -28,12 +28,12 @@ function sendGetAuth(url, success, fail) {
 	send(url, "GET", header, null, success, fail);
 }
 
-function sendPostAuth(url, success, fail) {
+function sendPostAuth(url, data, success, fail) {
 	let header = {
 		"content-type": "application/json",
 		"authorization": "Bearer " + getToken()
 	};
-	send(url, "POST", header, null, success, fail);
+	send(url, "POST", header, data, success, fail);
 }
 
 function sendGetHeader(url, header, success, fail) {
@@ -62,7 +62,7 @@ function send(url, method, header, data, success, fail) {
 					//auth useless
 					wx.showToast({
 						title: "尝试刷新授权码",
-						image: "/images/index/warn.png",
+						image: "/images/common/warn.png",
 						complete: function () {
 							refreshToken(
 								function (re) {
@@ -75,7 +75,7 @@ function send(url, method, header, data, success, fail) {
 									console.log("刷新token失败");
 									wx.showToast({
 										title: "授权码失效",
-										image: "/images/index/warn.png",
+										image: "/images/common/warn.png",
 										complete: function () {
 											wx.removeStorageSync(KEY_TOKEN);
 											wx.removeStorageSync(KEY_REFRESH_TOKEN);
@@ -96,7 +96,7 @@ function send(url, method, header, data, success, fail) {
 					console.error("api invoke failed, http status code: " + re.statusCode)
 					wx.showToast({
 						title: re.errMsg,
-						image:"/images/index/warn.png"
+						image:"/images/common/warn.png"
 					})
 					if (fail) { fail(re) };
 			}
@@ -104,7 +104,7 @@ function send(url, method, header, data, success, fail) {
 		fail: function (re) {
 			wx.showToast({
 				title: "当前网络异常",
-				image: "/images/index/warn.png"
+				image: "/images/common/warn.png"
 			})
 			console.error(method + " request send fail");
 			console.error(re);

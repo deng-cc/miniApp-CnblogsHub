@@ -16,12 +16,14 @@ Page({
 		}
 	},
 	
-	onInputBlur: function(event){
-		app.globalData.indexInput = event.detail.value;
+	onInput: function(event){
+		this.setData({
+			code:event.detail.value
+		})
 	},
 
 	onSubmitTap : function(event){
-		let code = app.globalData.indexInput;
+		let code = this.data.code;
 		base.getNewToken(code, 
 			function(re){
 				console.log("getNewToken success")
@@ -35,7 +37,7 @@ Page({
 				console.log(re);
 				wx.showToast({
 					title: "授权码无效",
-					image:"/images/index/warn.png"
+					image:"/images/common/warn.png"
 				})
 			}
 		);

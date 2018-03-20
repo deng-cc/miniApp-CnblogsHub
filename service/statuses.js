@@ -4,8 +4,6 @@ var baseUrl = base.baseUrl;
 
 const PAGE_SIZE = 30;
 const URL_STATUSES = `${baseUrl}/statuses/`;
-const URL_STATUS = `${baseUrl}/statuses/`
-const URL_COMMENTS = `${baseUrl}/statuses/`
 
 function getStatuses(type, pageIndex, success, fail) {
 	let url = `${URL_STATUSES}@${type}?pageIndex=${pageIndex}&pageSize=${PAGE_SIZE}&tag=`;
@@ -13,13 +11,23 @@ function getStatuses(type, pageIndex, success, fail) {
 }
 
 function getStatus(id, success, fail) {
-	let url = `${URL_STATUS}${id}`;
+	let url = `${URL_STATUSES}${id}`;
 	base.sendGetAuth(url, success, fail);
 }
 
 function getComments(id, success, fail) {
-	let url = `${URL_COMMENTS}${id}/comments`;
+	let url = `${URL_STATUSES}${id}/comments`;
 	base.sendGetAuth(url, success, fail);
+}
+
+function sendStatus(content, success, fail) {
+	let url = `${URL_STATUSES}`;
+	let isPrivate = false;
+	let data = {
+		Content: content,
+		IsPrivate: isPrivate
+	}
+	base.sendPostAuth(url, data, success, fail)
 }
 
 function processContent(content) {
@@ -73,5 +81,6 @@ module.exports = {
 	processData: processData,
 	getStatus: getStatus,
 	getStatuses: getStatuses,
-	getComments: getComments
+	getComments: getComments,
+	sendStatus: sendStatus
 }

@@ -1,5 +1,4 @@
 var app = getApp();
-var commonUtil = require("../../utils/common.js")
 var service = require("../../service/statuses.js");
 
 Page({
@@ -39,7 +38,6 @@ Page({
 	},
 
 	processComments: function (data) {
-
 		for (let idx in data) {
 			let bean = data[idx];
 			service.processData(bean);
