@@ -47,8 +47,9 @@
 }
 
 .status-content {
-    padding: 0rpx 15rpx 15rpx 15rpx;
-    line-height: 34rpx;
+    padding: 5rpx 15rpx 15rpx 15rpx;
+    line-height: 36rpx;
+	letter-spacing:0.03em;
 }
 
 .status-luckyStar {

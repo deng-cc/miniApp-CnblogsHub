@@ -1,6 +1,6 @@
 <view class="inputarea-container shadow">
     <image src="/images/tabBar/flashOn.png"></image>
-    <textarea placeholder="{{reply.placeHolderContent}}" placeholder-style="font-size:30rpx;" maxlength="200" auto-focus="true" bindinput="onInput" />
+    <textarea placeholder="{{reply.placeHolderContent}}" placeholder-style="font-size:28rpx;" maxlength="200" auto-focus="true" bindinput="onInput" />
     <text class="loadmore">{{remain}}/200</text>
 </view>
 <button catch:tap="onSubmitTap" type="primary">回复</button>

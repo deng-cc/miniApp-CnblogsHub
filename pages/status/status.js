@@ -63,7 +63,7 @@ Page({
 		reply.replyToUserId = commentIdx >= 0 ? this.data.comments[commentIdx].UserId : status.UserId;
 
 		let placeHolder = commentIdx >= 0 ? this.data.comments[commentIdx] : status;
-		let placeHolderContent = "回复 @" + placeHolder.UserAlias + ": " + placeHolder.Content;
+		let placeHolderContent = "回复 @" + placeHolder.UserDisplayName + ": " + placeHolder.Content;
 		if (placeHolderContent.length > 100) {
 			placeHolderContent = placeHolderContent.substring(0, 99) + "...";
 		}

@@ -65,7 +65,7 @@ height 61rpx =
 .statuses-user-container {
     display: flex;
     flex-direction: row;
-    margin: 10rpx;
+    margin: 15rpx;
 }
 
 .statuses-user-container image {
@@ -96,7 +96,7 @@ height 61rpx =
 .statuses-comment-container {
     display: flex;
     flex-direction: row;
-    margin: 12rpx 10rpx;
+    margin: 15rpx 10rpx;
 }
 
 .statuses-comment-container image {
@@ -112,8 +112,9 @@ height 61rpx =
 }
 
 .statuses-content {
-    padding: 0rpx 15rpx 15rpx 15rpx;
-    line-height: 34rpx;
+    padding: 5rpx 18rpx 18rpx 18rpx;
+    line-height: 36rpx;
+	letter-spacing:0.03em;
 }
 
 .statuses-luckyStar {

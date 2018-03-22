@@ -1,9 +1,3 @@
-.comment-container-right image{
-	width: 66rpx;
-    height: 66rpx;
-    border-radius: 66rpx;
-	margin-left: 10rpx;
-}
 
 .comment-via-nickname {
     font-size: 26rpx;
@@ -13,4 +7,10 @@
 .comment-via-date {
     font-size: 24rpx;
 	margin: 0 10rpx;
+}
+
+.content-text {
+	font-size: 28rpx;
+	letter-spacing:0.03em;
+	padding: 6rpx;
 }

@@ -7,7 +7,7 @@
                 <text class="comment-via-date wx-light">{{DateAdded}}</text>
             </view>
             <view class="comment-content-left">
-                <text>{{Content}}</text>
+                <text class="content-text">{{Content}}</text>
             </view>
         </view>
     </view>
