@@ -3,6 +3,16 @@ var service = require("../../service/statuses.js");
 
 Page({
 
+	onShow:function(){
+		//加载评论
+		let that = this;
+		function process(data) {
+			that.processComments(data);
+			wx.hideLoading();
+		}
+		service.getComments(this.data.status.Id, process, null);
+	},
+
 	data: {
 		status: {},
 		comments: []
@@ -12,13 +22,8 @@ Page({
 		wx.showLoading({
 			title: "loading"
 		});
-		let that = this;
-		function process(data) {
-			that.processComments(data);
-			wx.hideLoading();
-		}
+		this.data.status.Id = id;
 		service.getStatus(id, this.processStatus, null);
-		service.getComments(id, process, null);
 	},
 
 	onLoad: function (options) {
