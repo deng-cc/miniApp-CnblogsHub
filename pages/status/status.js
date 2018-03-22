@@ -4,13 +4,7 @@ var service = require("../../service/statuses.js");
 Page({
 
 	onShow:function(){
-		//加载评论
-		let that = this;
-		function process(data) {
-			that.processComments(data);
-			wx.hideLoading();
-		}
-		service.getComments(this.data.status.Id, process, null);
+		this.refreshComments(this.data.status.Id);
 	},
 
 	data: {
@@ -32,7 +26,16 @@ Page({
 
 	onPullDownRefresh: function () {
 		this.initStatus(this.data.status.Id);
+		this.refreshComments(this.data.status.Id);
 		wx.stopPullDownRefresh();
+	},
+
+	refreshComments:function(statusId){
+		let that = this;
+		function process(data) {
+			that.processComments(data);
+		}
+		service.getComments(statusId, process, null);
 	},
 
 	processStatus: function (data) {
@@ -40,6 +43,7 @@ Page({
 		this.setData({
 			status: data
 		})
+		wx.hideLoading();
 	},
 
 	processComments: function (data) {
