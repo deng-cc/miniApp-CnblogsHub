@@ -13,7 +13,7 @@
     </view>
     <view class="status-content" catch:tap="onReplyParent">
         <text selectable="true">{{status.Content}}</text>
-        <image class="status-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
+        <image class="status-luckyStar" wx:if="{{status.IsLucky}}" src="/images/common/star.png"></image>
     </view>
 </view>
 

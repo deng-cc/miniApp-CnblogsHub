@@ -8,7 +8,7 @@ Page({
 		statuses: [],
 		curType: "",
 		curPageIndex: 0,
-		lineText:""
+		lineText: ""
 	},
 
 	initStatuses: function (type) {
@@ -19,10 +19,15 @@ Page({
 			statuses: [],
 			curType: type,
 			curPageIndex: 1,
-			lineText:"加载更多"
+			lineText: "加载更多"
 		})
 		let that = this;
 		function process(data) {
+			if (data.length < 10) {
+				that.setData({
+					lineText: ""
+				})
+			}
 			that.processData(data);
 			wx.hideLoading();
 		}
@@ -46,17 +51,17 @@ Page({
 			curPageIndex: this.data.curPageIndex + 1
 		})
 		let that = this;
-		function process(data){
+		function process(data) {
 			that.processData(data);
 			that.setData({
-				lineText: data.length? "加载更多":"没有更多"
+				lineText: data.length ? "加载更多" : "没有更多"
 			})
 			wx.hideNavigationBarLoading();
 		}
 		service.getStatuses(this.data.curType, this.data.curPageIndex, process, null);
 	},
 
-	onEditTap:function(event){
+	onEditTap: function (event) {
 		wx.navigateTo({
 			url: "/pages/send/send"
 		})
@@ -82,7 +87,7 @@ Page({
 		console.log(result)
 	},
 
-	onStatusTap:function(event){
+	onStatusTap: function (event) {
 		let id = event.currentTarget.dataset.id;
 		wx.navigateTo({
 			url: "/pages/status/status?id=" + id

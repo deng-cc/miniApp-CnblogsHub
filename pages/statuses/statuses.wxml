@@ -5,6 +5,7 @@
             <text class="{{curType==='all' ? 'statuses-curType' : ''}}" data-type="all">全站</text>
             <text class="{{curType==='following' ? 'statuses-curType' : ''}}" data-type="following">关注</text>
             <text class="{{curType==='my' ? 'statuses-curType' : ''}}" data-type="my">我的</text>
+			<text class="{{curType==='mycomment' ? 'statuses-curType' : ''}}" data-type="mycomment">我回应</text>
         </view>
     </view>
     <view class="dividingLine"></view>
@@ -28,7 +29,7 @@
                 </view>
                 <view class="statuses-content">
                     <text selectable="true">{{status.Content}}</text>
-                    <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/statuses/star.png"></image>
+                    <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/common/star.png"></image>
                 </view>
             </view>
         </block>

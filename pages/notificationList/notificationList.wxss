@@ -1,0 +1,73 @@
+.notifications-page {
+	display: flex;
+	flex-direction: column;
+}
+
+.notification-container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 10rpx auto 0;
+    border-radius: 4px;
+}
+
+.notification-head-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.notification-user-container {
+    display: flex;
+    flex-direction: row;
+    margin: 10rpx;
+}
+
+.notification-user-container image {
+    width: 66rpx;
+    height: 66rpx;
+    border-radius: 66rpx;
+}
+
+.notification-via-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0rpx 10rpx;
+}
+
+.notification-via-nickname {
+    font-size: 26rpx;
+    font-weight: 500;
+    margin: 2rpx 0rpx;
+}
+
+.notification-via-date {
+    font-size: 24rpx;
+	color: #b2b2b2;
+}
+
+.notification-content {
+    padding: 5rpx 15rpx 15rpx 15rpx;
+    line-height: 36rpx;
+	letter-spacing:0.03em;
+}
+
+.notification-luckyStar {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.notification-resource {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0rpx 15rpx 20rpx 15rpx;
+	background-color: #d9d9d9;
+	border-radius: 0rpx 20rpx 20rpx 20rpx;
+}
+
+.notification-resource text {
+	margin: 12rpx;
+	font-size: 24rpx;
+}

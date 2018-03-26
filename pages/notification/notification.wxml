@@ -1,0 +1,12 @@
+<view catch:tap="onNotificationTap">
+    <view class="notification-container" >
+        <image src="/images/notification/mention.png" />
+        <text data-type="mention">@我的</text>
+    </view>
+    <view class="dividingLine line-width"></view>
+    <view class="notification-container">
+        <image src="/images/notification/comment.png" />
+        <text data-type="comment">回复我的</text>
+    </view>
+    <view class="dividingLine line-width"></view>
+</view>

@@ -72,7 +72,6 @@ Page({
 			placeHolderContent = placeHolderContent.substring(0, 99) + "...";
 		}
 		reply.placeHolderContent = placeHolderContent;
-		console.log(reply);
 	},
 
 	onReplyParent: function (event) {

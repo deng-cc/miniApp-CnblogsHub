@@ -2,7 +2,7 @@ var base = require("base.js");
 var commonUtil = require("../utils/common.js")
 var baseUrl = base.baseUrl;
 
-const PAGE_SIZE = 30;
+const PAGE_SIZE = 20;
 const URL_STATUSES = `${baseUrl}/statuses/`;
 
 function getStatuses(type, pageIndex, success, fail) {
@@ -42,7 +42,7 @@ function replyStatus(statusId, content, replyToUserId, commentId, success, fail)
 
 function processContent(content) {
 	//处理@
-	let reg = /<a.*?>(@.*?)<\/a>/g;
+	let reg = /<a.*?>(.*?)<\/a>/g;
 	let pod = content;
 	let bean = null;
 	while ((bean = reg.exec(pod))) {
@@ -80,6 +80,7 @@ function processDate(str) {
 function processData(data) {
 	//处理图片外链
 	data.UserIconUrl = commonUtil.imgUrlProxy(data.UserIconUrl);
+	data.IconName = commonUtil.imgUrlProxy(data.IconName);
 	//处理内容
 	data.Content = processContent(data.Content);
 	//处理日期

@@ -5,6 +5,8 @@
 		"pages/status/status",
 		"pages/send/send",
 		"pages/reply/reply",
+		"pages/notification/notification",
+		"pages/notificationList/notificationList",
 		"pages/demo/demo",
 		"pages/back/back"
 	],
@@ -17,7 +19,7 @@
 				"selectedIconPath":"images/tabBar/flashOn.png"
 			},
 			{
-				"pagePath":"pages/demo/demo",
+				"pagePath":"pages/notification/notification",
 				"text":"信息",
 				"iconPath": "images/tabBar/notificationOff.png",
 				"selectedIconPath": "images/tabBar/notificationOn.png"

@@ -1,0 +1,24 @@
+<view class="notifications-page">
+<block wx:for="{{notifications}}" wx:for-item="notification" wx:for-index="index"> 
+    <view class="notification-container">
+        <view class="notification-head-container">
+            <view class="notification-user-container">
+                <image src="{{notification.MentionId? notification.IconName : notification.UserIconUrl}}"></image>
+                <view class="notification-via-container">
+                    <text class="notification-via-nickname wx-blue">{{notification.MentionId? notification.UserName : notification.UserDisplayName}}</text>
+                    <text class="notification-via-date">{{notification.DateAdded}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="notification-content" catch:tap="onReplyChild" data-notification-index="{{index}}">
+            <text selectable="true">{{notification.Content}}</text>
+        </view>
+        <view class="notification-resource" catch:tap="onReplyParent" data-status-id="{{notification.MentionId? notification.ContentId : notification.StatusId}}">
+			<text wx:if="{{notification.MentionId}}">{{notification.ShortFormatedTitle}}</text>
+			<text wx:else>{{notification.ParentCommentId? notification.ParentCommentContent : notification.StatusContent}}</text>
+        </view>
+        <view class="dividingLine"></view>
+    </view>
+</block>
+<text class="loadmore">{{lineText}}</text>
+</view>

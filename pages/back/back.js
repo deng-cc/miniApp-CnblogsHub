@@ -22,7 +22,7 @@ Page({
 		})
 	},
 	onTestTap1:function(event){
-
+		service.getStatuses("comment", 1, null, null)
 	},
 	onTestTap2: function (event) {
 

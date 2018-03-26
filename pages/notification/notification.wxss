@@ -1,0 +1,20 @@
+.notification-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 20rpx 40rpx;
+}
+
+.notification-container image {
+	width: 80rpx;
+	height: 80rpx;
+}
+
+.notification-container text {
+	margin-left: 20rpx;
+	font-size: 36rpx;
+}
+
+.line-width {
+	margin: 0 40rpx;
+}
