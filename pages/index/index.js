@@ -5,10 +5,13 @@ var base = require("../../service/base.js")
 Page({
 
 	onShow: function (options) {
+		//异步静默刷新token
+		base.refreshTokenSilently();
 		let token = wx.getStorageSync("token");
 		if (token) {
 			wx.showLoading({
-				title: "已授权，跳转中"
+				title: "已授权，跳转中",
+				mask: true
 			})
 			wx.switchTab({
 				url: "/pages/statuses/statuses"
@@ -23,9 +26,14 @@ Page({
 	},
 
 	onSubmitTap: function (event) {
+		wx.showLoading({
+			title: "login",
+			mask: true
+		})
 		let code = this.data.code;
 		base.getNewToken(code,
 			function (re) {
+				wx.hideLoading();
 				console.log("getNewToken success")
 				console.log(re);
 				wx.switchTab({

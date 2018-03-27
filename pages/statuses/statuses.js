@@ -13,7 +13,8 @@ Page({
 
 	initStatuses: function (type) {
 		wx.showLoading({
-			title: "loading"
+			title: "loading",
+			mask: true
 		});
 		this.setData({
 			statuses: [],

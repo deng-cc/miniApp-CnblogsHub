@@ -28,7 +28,7 @@
                     </view>
                 </view>
                 <view class="statuses-content">
-                    <text selectable="true">{{status.Content}}</text>
+                    <text>{{status.Content}}</text>
                     <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/common/star.png"></image>
                 </view>
             </view>

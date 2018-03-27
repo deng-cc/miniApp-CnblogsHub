@@ -2,8 +2,8 @@
     <block wx:for="{{helpContent}}">
         <view class="help-container">
             <text class="help-question">{{item.question}}</text>
-            <text class="help-answer">{{item.answer}}</text>
-			<image mode="aspectFit" wx:if="{{item.image}}" src="{{item.image}}"></image>
+            <text selectable="true" class="help-answer">{{item.answer}}</text>
+			<image catch:tap="onImageTap" mode="aspectFit" wx:if="{{item.image}}" src="{{item.image}}"></image>
         </view>
     </block>
 </view>

@@ -3,7 +3,7 @@ var service = require("../../service/statuses.js");
 
 Page({
 
-	onShow:function(){
+	onShow: function () {
 		this.refreshComments(this.data.status.Id);
 	},
 
@@ -14,7 +14,8 @@ Page({
 
 	initStatus: function (id) {
 		wx.showLoading({
-			title: "loading"
+			title: "loading",
+			mask: true
 		});
 		this.data.status.Id = id;
 		service.getStatus(id, this.processStatus, null);
@@ -30,7 +31,7 @@ Page({
 		wx.stopPullDownRefresh();
 	},
 
-	refreshComments:function(statusId){
+	refreshComments: function (statusId) {
 		let that = this;
 		function process(data) {
 			that.processComments(data);

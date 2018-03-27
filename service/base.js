@@ -52,7 +52,7 @@ function send(url, method, header, data, success, fail) {
 		data: data ? data : {},
 		success: function (re) {
 			console.log(re);
-			console.info(method + " request send success, url=" + url + ", statusCode=" + re.statusCode);
+			console.log(method + " request send success, url=" + url + ", statusCode=" + re.statusCode);
 			// if not error, invoke success(), else invoke fail()
 			switch (re.statusCode) {
 				case 200:
@@ -65,12 +65,14 @@ function send(url, method, header, data, success, fail) {
 						image: "/images/common/warn.png",
 						complete: function () {
 							refreshToken(
+								//refresh success
 								function (re) {
 									console.log("刷新token成功");
 									wx.reLaunch({
 										url: "/pages/statuses/statuses"
 									})
 								},
+								//refresh fail
 								function (re) {
 									console.log("刷新token失败");
 									wx.showToast({
@@ -95,8 +97,8 @@ function send(url, method, header, data, success, fail) {
 				default:
 					console.error("api invoke failed, http status code: " + re.statusCode)
 					wx.showToast({
-						title: re.errMsg,
-						image:"/images/common/warn.png"
+						title: re.data,
+						icon:"none"
 					})
 					if (fail) { fail(re) };
 			}
@@ -128,12 +130,12 @@ function getNewToken(code, success, fail) {
 			wx.setStorageSync(KEY_REFRESH_TOKEN, re["refresh_token"]);
 			success(re);
 		},
-		fail
+		fail(re)
 	);
 }
 
 function refreshToken(success, fail) {
-	console.log("授权已失效，开始尝试刷新token")
+	console.log("开始尝试刷新token")
 	let header = {
 		"content-type": "application/x-www-form-urlencoded",
 		"authorization": "Bearer " + getToken()
@@ -147,12 +149,50 @@ function refreshToken(success, fail) {
 	}
 	sendPostHeader(URL_AUTHORIZE, header, data,
 		function (re) {
+			console.log("刷新token成功");
 			wx.setStorageSync(KEY_TOKEN, re["access_token"]);
 			wx.setStorageSync(KEY_REFRESH_TOKEN, re["refresh_token"]);
 			success(re);
 		},
-		fail
+		function (re) {
+			console.log("刷新token失败");
+			fail(re);
+		}
 	);
+}
+
+function refreshTokenSilently() {
+	console.log("[info] 开始尝试静默刷新授权token");
+	let token = getToken();
+	let refresh = getRefreshToken();
+	if (token && refresh) {
+		let header = {
+			"content-type": "application/json",
+			"authorization": "Bearer " + token
+		};
+		//通过访问用户的个人信息的api来判断token是否失效
+		let url = "https://api.cnblogs.com/api/users";
+		wx.request({
+			url: url,
+			method: "GET",
+			header: header,
+			success: function (re) {
+				switch (re.statusCode) {
+					case 200:
+						console.log("[info] token尚未过期，无需刷新");
+						break;
+					case 401:
+						refreshToken(
+							function () { console.log("[info] 静默刷新token成功") },
+							function () { console.log("[info] 静默刷新token失败") }
+						);
+						break;
+				}
+			}
+		})
+	} else {
+		console.log("[info] 缓存中不存在token，无需刷新");
+	}
 }
 
 
@@ -168,5 +208,6 @@ module.exports = {
 	baseUrl: URL_BASE,
 	getNewToken: getNewToken,
 	sendGetAuth: sendGetAuth,
-	sendPostAuth: sendPostAuth
+	sendPostAuth: sendPostAuth,
+	refreshTokenSilently: refreshTokenSilently
 }

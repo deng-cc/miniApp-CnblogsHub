@@ -6,7 +6,7 @@
                 <text class="comment-via-nickname wx-blue">{{UserDisplayName}}</text>
             </view>
             <view class="comment-content-right">
-                <text class="content-text" style="color:#ffffff">{{Content}}</text>
+                <text selectable="true" class="content-text" style="color:#ffffff">{{Content}}</text>
             </view>
         </view>
         <image src="{{UserIconUrl}}"></image>
