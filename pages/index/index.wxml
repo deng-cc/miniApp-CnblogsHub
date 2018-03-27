@@ -8,5 +8,7 @@
     <view class="index-input-container">
         <input bindinput="onInput" placeholder="请输入授权码" placeholder-style="font-size:26rpx;margin-left:10rpx;" />
         <button catch:tap="onSubmitTap" type="primary">开启</button>
+		<text class="wx-blue" catch:tap="onHelpTap">如何获取授权码</text>
+		<text class="footer wx-grey" catch:tap="onSuggestionTap">反馈建议</text>
     </view>
 </view>

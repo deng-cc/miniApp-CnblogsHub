@@ -1,0 +1,67 @@
+.user-info-container {
+	margin-top: 20rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.user-info-container image {
+	width: 120rpx;
+    height: 120rpx;
+    border-radius: 120rpx;
+	margin-left: 40rpx;
+}
+
+.user-info-text-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 20rpx;
+}
+
+.user-info-text-container text {
+	margin: 5rpx 0;
+}
+
+.seniority {
+	font-size: 26rpx;
+}
+
+.setting-container {
+	margin-top: 40rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+
+.option-container {
+	width: 85%;
+	margin: 10rpx auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	border-bottom: 1rpx solid #d9d9d9;
+}
+
+.option-container image {
+	width: 66rpx;
+	height: 66rpx;
+	margin: 10rpx;
+}
+
+.option-container text {
+	margin-left: 40rpx;
+}
+
+.option-container button {
+	font-size: 28rpx;
+	font-family: MicroSoft Yahei;
+	color: #353535;
+	margin-left: 0;
+	padding-left: 40rpx; 
+	border: none;
+}

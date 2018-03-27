@@ -25,6 +25,7 @@
 .index-input-container {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	width:400rpx;
 	margin: 100rpx auto;
 }
@@ -38,4 +39,12 @@
 
 .index-input-container button {
 	width: 100%;
+}
+
+.index-input-container text {
+	margin-top: 20rpx;
+}
+
+.footer {
+	padding-top: 110rpx;
 }

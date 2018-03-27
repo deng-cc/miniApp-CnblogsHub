@@ -1,14 +1,15 @@
 {
 	"pages": [
 		"pages/index/index",
+		"pages/user/user",
+		"pages/help/help",
+		"pages/about/about",
 		"pages/statuses/statuses",
 		"pages/status/status",
 		"pages/send/send",
 		"pages/reply/reply",
 		"pages/notification/notification",
-		"pages/notificationList/notificationList",
-		"pages/demo/demo",
-		"pages/back/back"
+		"pages/notificationList/notificationList"
 	],
 	"tabBar":{
 		"list":[
@@ -25,20 +26,14 @@
 				"selectedIconPath": "images/tabBar/notificationOn.png"
 			},
 			{
-				"pagePath":"pages/demo/demo",
-				"text":"热点",
-				"iconPath": "images/tabBar/fireOff.png",
-				"selectedIconPath": "images/tabBar/fireOn.png"
-			},
-			{
-				"pagePath":"pages/back/back",
+				"pagePath":"pages/user/user",
 				"text":"我",
 				"iconPath": "images/tabBar/meOff.png",
 				"selectedIconPath": "images/tabBar/meOn.png"
 			}
 		],
 		"color":"#888888",
-		"selectedColor":"#09BB07"
-		
+		"selectedColor":"#09BB07"	
 	}
 }
+

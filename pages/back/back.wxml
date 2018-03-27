@@ -1,4 +1,0 @@
-<button catch:tap="onClearTap" type="primary">清除所有缓存</button>
-<button catch:tap="onSuggestTap" type="primary">反馈建议</button>
-<button catch:tap="onTestTap1" type="primary">测试1</button>
-<button catch:tap="onTestTap2" type="primary">测试2</button>

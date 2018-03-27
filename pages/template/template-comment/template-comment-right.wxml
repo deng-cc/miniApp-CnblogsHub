@@ -2,7 +2,7 @@
     <view class="comment-container-right">
         <view class="comment-right shadow wx-bg-green" catch:tap="onReplyChild" data-comment-idx="{{idx}}">
             <view class="comment-via-right">
-                <text class="comment-via-date wx-light">{{DateAdded}}</text>
+                <text class="comment-via-date wx-lighter">{{DateAdded}}</text>
                 <text class="comment-via-nickname wx-blue">{{UserDisplayName}}</text>
             </view>
             <view class="comment-content-right">

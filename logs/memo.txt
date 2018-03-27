@@ -19,3 +19,14 @@ onScroll: function(event){
 		})
 	}
 }
+
+
+3、等待api
+热点板块
+{
+	"pagePath": "pages/user/user",
+	"text": "热点",
+	"iconPath": "images/tabBar/fireOff.png",
+	"selectedIconPath": "images/tabBar/fireOn.png"
+}
+

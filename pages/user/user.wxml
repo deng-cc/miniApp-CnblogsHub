@@ -1,0 +1,36 @@
+<view class="user-info-container">
+    <image src="{{user.Avatar}}"></image>
+    <view class="user-info-text-container">
+        <text class="username wx-blue">{{user.DisplayName}}</text>
+        <text class="seniority wx-light">{{user.Seniority}}</text>
+    </view>
+</view>
+
+<view class="setting-container">
+
+	<view class="option-container" catch:tap="onSettingTap">
+		<image src="/images/setting/setting.png"></image>
+		<text>设置</text>
+	</view>
+
+	<view class="option-container" catch:tap="onSuggestionTap">
+		<image src="/images/setting/suggestion.png"></image>
+		<text>吐个槽</text>
+	</view>
+
+	<view class="option-container" catch:tap="onAboutTap">
+		<image src="/images/setting/about.png"></image>
+		<text>关于</text>
+	</view>
+
+	<view class="option-container">
+		<image src="/images/setting/share.png"></image>
+		<button size="mini" plain="true" open-type="share">分享该小程序</button>
+	</view>
+
+	<view class="option-container" catch:tap="onLogoutTap">
+		<image src="/images/setting/logout.png"></image>
+		<text>退出</text>
+	</view>
+
+</view>

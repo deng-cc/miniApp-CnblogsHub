@@ -1,0 +1,21 @@
+.about-page{
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	margin: 20rpx auto;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.about-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 40rpx;
+}
+
+.title {
+	font-size: 30rpx;
+	font-weight: 700;
+}

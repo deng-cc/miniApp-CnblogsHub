@@ -1,0 +1,18 @@
+<view class="about-page">
+    <view class="about-container">
+        <text class="title">数据支持</text>
+        <text class="content">博客园开发中心 https://api.cnblogs.com</text>
+        <text class="content">开发文档 https://api.cnblogs.com/help</text>
+    </view>
+
+    <view class="about-container">
+        <text class="title">更新日志</text>
+        <text class="content">v1.0 初版</text>
+    </view>
+
+    <view class="about-container">
+        <text class="title">关于作者</text>
+        <text class="content">Dulk</text>
+        <text class="content">http://www.cnblogs.com/deng-cc/</text>
+    </view>
+</view>

@@ -4,9 +4,9 @@ var base = require("../../service/base.js")
 
 Page({
 
-	onShow:function(options){
+	onShow: function (options) {
 		let token = wx.getStorageSync("token");
-		if(token){
+		if (token) {
 			wx.showLoading({
 				title: "已授权，跳转中"
 			})
@@ -15,32 +15,54 @@ Page({
 			})
 		}
 	},
-	
-	onInput: function(event){
+
+	onInput: function (event) {
 		this.setData({
-			code:event.detail.value
+			code: event.detail.value
 		})
 	},
 
-	onSubmitTap : function(event){
+	onSubmitTap: function (event) {
 		let code = this.data.code;
-		base.getNewToken(code, 
-			function(re){
+		base.getNewToken(code,
+			function (re) {
 				console.log("getNewToken success")
 				console.log(re);
 				wx.switchTab({
 					url: "/pages/statuses/statuses"
 				})
 			},
-			function(re){
+			function (re) {
 				console.log("getNewToken failed")
 				console.log(re);
 				wx.showToast({
 					title: "授权码无效",
-					image:"/images/common/warn.png"
+					image: "/images/common/warn.png"
 				})
 			}
 		);
+	},
+
+	onHelpTap: function (event) {
+		wx.navigateTo({
+			url: "/pages/help/help"
+		})
+	},
+
+	onSuggestionTap: function (event) {
+		let sysInfo = wx.getSystemInfoSync();
+		wx.navigateToMiniProgram({
+			appId: "wx8abaf00ee8c3202e",
+			extraData: {
+				id: "25030",
+				customData: {
+					clientInfo: sysInfo.brand,
+					clientVersion: sysInfo.model,
+					os: sysInfo.platform,
+					osVersion: sysInfo.system
+				}
+			}
+		})
 	}
 
 })
