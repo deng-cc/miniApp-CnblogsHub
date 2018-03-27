@@ -130,7 +130,7 @@ function getNewToken(code, success, fail) {
 			wx.setStorageSync(KEY_REFRESH_TOKEN, re["refresh_token"]);
 			success(re);
 		},
-		fail(re)
+		fail
 	);
 }
 
