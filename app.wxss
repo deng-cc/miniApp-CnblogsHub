@@ -1,3 +1,7 @@
+view {
+	word-break: break-all;
+}
+
 text {
     font-family: MicroSoft Yahei;
     font-size: 28rpx;
@@ -10,7 +14,7 @@ text {
 
 .loadmore {
     color: #b2b2b2;
-    margin: 0 auto 10rpx;
+    margin: 5rpx auto 10rpx;
 }
 
 .dividingLine {

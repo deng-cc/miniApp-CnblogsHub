@@ -1,5 +1,6 @@
 <import src="../template/template-comment/template-comment-right.wxml" />
 <import src="../template/template-comment/template-comment-left.wxml" />
+<import src="../template/template-imgGrid/template-imgGrid.wxml" />
 
 <view class="status-container">
     <view class="status-head-container">
@@ -15,6 +16,7 @@
         <text selectable="true">{{status.Content}}</text>
         <image class="status-luckyStar" wx:if="{{status.IsLucky}}" src="/images/common/star.png"></image>
     </view>
+	<template is="imgGrid" data="{{...status}}" />
 </view>
 
 <view class="dividingLine"></view>

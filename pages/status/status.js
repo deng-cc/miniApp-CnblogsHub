@@ -87,6 +87,15 @@ Page({
 		wx.navigateTo({
 			url: "/pages/reply/reply"
 		})
+	},
+
+	onImageTap: function (event) {
+		let imgUrls = event.currentTarget.dataset.imgUrls;
+		let imgIndex = event.target.dataset.imgIndex;
+		wx.previewImage({
+			urls: imgUrls,
+			current: imgUrls[imgIndex]
+		})
 	}
 
 })

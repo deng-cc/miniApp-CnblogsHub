@@ -1,3 +1,5 @@
+<import src="../template/template-imgGrid/template-imgGrid.wxml" />
+
 <view class="statuses-topBar">
     <view class="statuses-topBar-container">
         <image src="/images/statuses/edit.png" catch:tap="onEditTap"></image>
@@ -5,7 +7,7 @@
             <text class="{{curType==='all' ? 'statuses-curType' : ''}}" data-type="all">全站</text>
             <text class="{{curType==='following' ? 'statuses-curType' : ''}}" data-type="following">关注</text>
             <text class="{{curType==='my' ? 'statuses-curType' : ''}}" data-type="my">我的</text>
-			<text class="{{curType==='mycomment' ? 'statuses-curType' : ''}}" data-type="mycomment">我回应</text>
+            <text class="{{curType==='mycomment' ? 'statuses-curType' : ''}}" data-type="mycomment">我回应</text>
         </view>
     </view>
     <view class="dividingLine"></view>
@@ -24,13 +26,14 @@
                     </view>
                     <view class="statuses-comment-container">
                         <text>{{status.CommentCount}}</text>
-                        <image src="/images/statuses/comment.png"></image>
+                        <image mode="widthFix" src="{{status.CommentCount > 9? '/images/statuses/fire.png' : '/images/statuses/comment.png'}}"></image>
                     </view>
                 </view>
                 <view class="statuses-content">
                     <text>{{status.Content}}</text>
                     <image class="statuses-luckyStar" wx:if="{{status.IsLucky}}" src="/images/common/star.png"></image>
                 </view>
+                <template is="imgGrid" data="{{...status}}" />
             </view>
         </block>
         <text class="loadmore">{{lineText}}</text>

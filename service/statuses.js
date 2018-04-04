@@ -40,17 +40,24 @@ function replyStatus(statusId, content, replyToUserId, commentId, success, fail)
 	base.sendPostAuth(url, data, success, fail);
 }
 
-function processContent(content) {
+function processContent(data) {
 	//处理@
-	let reg = /<a.*?>(.*?)<\/a>/g;
-	let pod = content;
+	let pod = data.Content;
 	let bean = null;
-	while ((bean = reg.exec(pod))) {
+	let regAt = /<a.*?>(.*?)<\/a>/g;
+	while ((bean = regAt.exec(pod))) {
 		let url = bean[0];
 		let fine = bean[1];
-		content = content.replace(url, fine)
+		data.Content = data.Content.replace(url, fine)
 	}
-	return content;
+	//处理图片
+	let regImg = /#img(http:\/\/.*?)#end/g;
+	let imgs = regImg.exec(pod);
+	if(imgs){
+		let imgArr = imgs[1].trim().split(" ");
+		data.imgArr = imgArr;
+		data.Content = data.Content.replace(imgs[0], "");
+	}
 }
 
 function processDate(str) {
@@ -78,13 +85,18 @@ function processDate(str) {
 }
 
 function processData(data) {
+	//处理内容
+	processContent(data);
+	//处理日期
+	data.DateAdded = processDate(data.DateAdded);
 	//处理图片外链
 	data.UserIconUrl = commonUtil.imgUrlProxy(data.UserIconUrl);
 	data.IconName = commonUtil.imgUrlProxy(data.IconName);
-	//处理内容
-	data.Content = processContent(data.Content);
-	//处理日期
-	data.DateAdded = processDate(data.DateAdded);
+	if(data.imgArr){
+		for(let i = 0; i < data.imgArr.length; i++){
+			data.imgArr[i] = commonUtil.imgUrlProxy(data.imgArr[i]);
+		} 
+	}
 }
 
 

@@ -1,6 +1,7 @@
- @import "../template/template-comment/template-comment-common.wxss"; 
- @import "../template/template-comment/template-comment-right.wxss";
- @import "../template/template-comment/template-comment-left.wxss";
+@import "../template/template-comment/template-comment-common.wxss"; 
+@import "../template/template-comment/template-comment-right.wxss";
+@import "../template/template-comment/template-comment-left.wxss";
+@import "../template/template-imgGrid/template-imgGrid.wxss";
 
 .status-container {
     display: flex;

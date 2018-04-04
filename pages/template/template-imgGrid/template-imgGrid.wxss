@@ -1,0 +1,9 @@
+.imgGrid {
+	margin: 10rpx 15rpx;
+}
+
+.imgGrid image {
+	width: 190rpx;
+	height: 190rpx;
+	margin: 0 5rpx;
+}

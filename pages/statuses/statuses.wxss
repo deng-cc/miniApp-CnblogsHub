@@ -1,3 +1,5 @@
+ @import "../template/template-imgGrid/template-imgGrid.wxss";
+
 /* 
 height 61rpx = 
 	.statuses-topBar-container(40+20=60rpx) +
@@ -94,14 +96,15 @@ height 61rpx =
 }
 
 .statuses-comment-container {
+	height: 100%;
     display: flex;
     flex-direction: row;
-    margin: 15rpx 10rpx;
+    align-items: center;
+	margin: 15rpx 10rpx; 
 }
 
 .statuses-comment-container image {
     width: 32rpx;
-    height: 29rpx;
     margin: 0rpx 10rpx;
 }
 
@@ -121,3 +124,5 @@ height 61rpx =
     width: 30rpx;
     height: 30rpx;
 }
+
+

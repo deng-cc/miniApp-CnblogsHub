@@ -1,0 +1,7 @@
+<template name="imgGrid">
+    <view class="imgGrid" catch:tap="onImageTap" data-img-urls="{{imgArr}}">
+        <block wx:for="{{imgArr}}">
+            <image data-img-index="{{index}}" mode="aspectFill" src="{{item}}" />
+        </block>
+    </view>
+</template>
