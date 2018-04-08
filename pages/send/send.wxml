@@ -5,7 +5,7 @@
 </view>
 <view class="quick-buttons-container">
 	<image catch:tap="onChooseTap" src="/images/common/uploadImage.png"></image>
-	<text class="wx-grey">注意：图片解析符占位8，每张图片占位23</text>
+	<text class="wx-grey">注意：图片解析符占位9，每张图片占位23</text>
 </view>
 <view class="preview-container">
     <block wx:for="{{tempFilePaths}}">
