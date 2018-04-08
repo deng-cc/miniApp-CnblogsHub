@@ -1,6 +1,17 @@
 <view class="inputarea-container shadow">
     <image src="/images/tabBar/flashOn.png"></image>
     <textarea placeholder="说点儿什么吧..." placeholder-style="font-size:30rpx;" maxlength="300" auto-focus="true" auto-height="true" bindinput="onInput" />
-    <text class="loadmore">{{remain}}/300</text>
+    <text class="loadmore">{{remain}}/{{statusSize}}</text>
+</view>
+<view class="quick-buttons-container">
+	<image catch:tap="onChooseTap" src="/images/common/uploadImage.png"></image>
+	<text class="wx-grey">注意：图片解析符占位8，每张图片占位23</text>
+</view>
+<view class="preview-container">
+    <block wx:for="{{tempFilePaths}}">
+        <image class="tempImage" mode="aspectFill" src="{{item}}">
+            <image data-image-index="{{index}}" catch:tap="onDeleteImage" class="deleteImage" src="/images/common/delete.png" />
+        </image>
+    </block>
 </view>
 <button catch:tap="onSubmitTap" type="primary">发送</button>

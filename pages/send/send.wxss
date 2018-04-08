@@ -27,3 +27,41 @@ button {
 	width: 90%;
 	margin-top: 30rpx;
 }
+
+.preview-container {
+	width: 90%;
+	margin: 20rpx auto;
+}
+
+.tempImage {
+	width: 200rpx;
+	height: 200rpx;
+	margin: 0 5rpx;
+	position: relative;
+}
+
+.deleteImage {
+	width: 40rpx;
+	height: 40rpx;
+	position: absolute;
+	top: 10rpx;
+	right: 10rpx;
+}
+
+.quick-buttons-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 90%;
+	margin: 20rpx auto;
+}
+
+.quick-buttons-container image {
+	width: 80rpx;
+	height: 80rpx;
+}
+
+.quick-buttons-container text {
+	margin-left: 10rpx;
+	font-size: 24rpx;
+}

@@ -50,8 +50,8 @@ function processContent(data) {
 		let fine = bean[1];
 		data.Content = data.Content.replace(url, fine)
 	}
-	//处理图片
-	let regImg = /#img(http:\/\/.*?)#end/g;
+	//处理有解析符的图片
+	let regImg = /#img(\s{0,1}http:\/\/.*?)#end/g;
 	let imgs = regImg.exec(pod);
 	if(imgs){
 		let imgArr = imgs[1].trim().split(" ");

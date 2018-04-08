@@ -16,7 +16,7 @@
         <text selectable="true">{{status.Content}}</text>
         <image class="status-luckyStar" wx:if="{{status.IsLucky}}" src="/images/common/star.png"></image>
     </view>
-	<template is="imgGrid" data="{{...status}}" />
+	<template wx:if="{{status.imgArr}}" is="imgGrid" data="{{...status}}" />
 </view>
 
 <view class="dividingLine"></view>

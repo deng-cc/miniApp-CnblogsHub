@@ -6,11 +6,11 @@
     </view>
     <view class="about-container">
         <text class="title">关于作者</text>
-        <text class="content">Dulk</text>
-        <text class="content">http://www.cnblogs.com/deng-cc/</text>
+        <text class="content">Dulk http://www.cnblogs.com/deng-cc/</text>
     </view>
 	<view class="about-container">
         <text class="title">更新日志</text>
+        <text class="content">v1.1 2018.04.08 优化界面，支持上传图片</text>
         <text class="content">v1.0 2018.03.27 初版</text>
     </view>
 </view>

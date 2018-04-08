@@ -9,16 +9,12 @@ var content = [
 	},
 	{
 		question: "3、如何获取授权码",
-		answer: "关注我的微信公众号（TheYellowUmbrella），回复关键词\"code\"即可",
+		answer: "用浏览器访问\"http://t.cn/RE52jiw\"，或关注我的微信公众号（TheYellowUmbrella），回复关键词\"code\"即可",
 		image:"/images/common/farhampton.jpg"
 	},
 	{
-		question: "4、为什么要关注公众号",
-		answer: "之前说过博客园的授权是OAuth2，这需要跳转到博客园的授权登陆网页，而小程序内部不支持单纯的网页跳转（至少个人开发者不支持），所以只能另辟蹊径地将授权网址发送给大家，让大家手动操作一下"
-	},
-	{
-		question: "5、不关注公众号可以获取授权码吗",
-		answer: "当然可以，访问如下网址即可：http://t.cn/RE52jiw"
+		question: "4、为什么无法直接在小程序登陆",
+		answer: "授权需要跳转到博客园的授权登陆页面，但个人开发者的小程序不支持在小程序内部直接的网页跳转(web-view组件不支持)"
 	}
 
 ]
